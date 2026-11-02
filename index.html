@@ -306,13 +306,13 @@ const SHEET_ID='1ylxNHZGFvu2-AE_62H9qBPFuVa6CJHpTw6pfot2AaY8';
 const REFRESH_DETIK=30;
 const BLOCK=[7,32,57,82], JAMS=['10:00','15:00','19:00','23:00'], N=19;
 
-// Urutan resmi toko Area Hasan (19 Toko)
+// Master Resmi 19 Toko Area Hasan
 const STORE_MASTER=[
   ['Y142','pancoran'],['Y457','dadapan'],['Y015','maesan'],['Y196','grujugan'],
   ['Y469','tamanan'],['Y247','jambe'],['Y1038','prapto2'],['Y073','supriyadi'],
   ['Y207','Baratan'],['Y222','jeruk'],['Y141','suko3'],['Y200','Kalis'],
   ['Y214','wahidin'],['Y144','a.yani'],['Y116','cumedak'],['Y136','arjasa'],
-  ['Y140','suko2'],['Y549','Gruu'],['Y550','Toko 19']
+  ['Y140','suko2'],['Y549','Gruu'],['Y555','Glgw']
 ];
 const FETCH_TIMEOUT=10000, MONTH_BATCH=5;
 const TARGET={psm:150,sertis:30,pwp:50,seger:50,ceban:10}, TOTAL_T=290;
@@ -381,17 +381,23 @@ function parse(rows){
     const rawKode=String(cell(BLOCK[0]-1+i,1)).trim().toUpperCase();
     const rawNama=String(cell(BLOCK[0]-1+i,2)).trim();
     
-    // Saring baris template/header "KODE TOKO" / "NAMA TOKO"
-    if(rawKode==='KODE TOKO' || rawKode==='KODE' || rawNama==='Nama Toko' || rawNama==='NAMA TOKO') continue;
-    if(!rawKode && !rawNama) continue;
+    // Gunakan master toko jika header / cell kosong
+    const isHeader = (rawKode==='KODE TOKO' || rawKode==='KODE' || rawNama==='NAMA TOKO' || rawNama==='NAMA');
+    const master = STORE_MASTER[i] || ['Y'+(i+1), 'Toko '+(i+1)];
+    const kode = (!isHeader && rawKode) ? rawKode : master[0];
+    const nama = (!isHeader && rawNama) ? rawNama : master[1];
 
-    const master=STORE_MASTER.find(x=>x[0]===rawKode);
-    const s={kode:rawKode||('TOKO-'+(i+1)),nama:master?master[1]:(rawNama||('Toko '+(i+1))),h:[]};
-    for(let b=0;b<4;b++){const r=BLOCK[b]-1+i;const h={lapor:false,staff:String(cell(r,4)).trim(),crew:String(cell(r,5)).trim()};
+    const s={kode, nama, h:[]};
+    for(let b=0;b<4;b++){
+      const r=BLOCK[b]-1+i;
+      const h={lapor:false,staff:String(cell(r,4)).trim(),crew:String(cell(r,5)).trim()};
       for(let c=6;c<=12;c++)if(cell(r,c)!=='')h.lapor=true;
       for(const k in COLS)h[k]=num(cell(r,COLS[k]));
-      if(IND.some(x=>h[x[0]]>0))any=true;s.h.push(h)}
-    stores.push(s)}
+      if(IND.some(x=>h[x[0]]>0))any=true;
+      s.h.push(h);
+    }
+    stores.push(s);
+  }
   return{stores,any};
 }
 
@@ -399,7 +405,7 @@ function agg(p,jam){
   return p.stores.map(s=>{const o={kode:s.kode,nama:s.nama,staff:'',crew:''};
     for(const k in COLS)o[k]=0;
     s.h.forEach((h,b)=>{if(jam===-1||jam===b){for(const k in COLS)o[k]+=h[k];if(h.staff)o.staff=h.staff;if(h.crew)o.crew=h.crew}});
-    o.total=IND.reduce((a,x)=>a+o[x[0]],0);return o}).filter(o=>(o.nama||o.kode) && o.kode!=='KODE TOKO' && o.nama!=='Nama Toko');
+    o.total=IND.reduce((a,x)=>a+o[x[0]],0);return o}).filter(o=>o.kode!=='KODE TOKO' && o.nama!=='NAMA TOKO');
 }
 const rankDesc=a=>a.map(v=>1+a.filter(x=>x>v).length);
 
@@ -455,7 +461,7 @@ function rCombined(){
   IN.forEach(x=>{const r=rankDesc(rows.map(o=>o[x[0]+'k']));rows.forEach((o,i)=>o[x[0]+'r']=r[i])});
   rows.forEach(o=>o.skorFair=IN.reduce((a,x)=>a+o[x[0]+'r'],0));
   
-  // Urutkan berdasarkan Peringkat Total Produktivitas
+  // Urutkan berdasarkan Produktivitas Total
   rows.sort((a,b)=>b.total-a.total);
   
   const n=rows.length||1,avg={};IND.forEach(x=>avg[x[0]]=rows.reduce((a,o)=>a+o[x[0]],0)/n);
@@ -506,14 +512,12 @@ function rCombined(){
       </td>
       <td class="rank-text">#${o.rank}</td>`;
       
-    // Indikator Produktivitas
     IND.forEach(x=>{const v=o[x[0]],t=TARGET[x[0]],ac=v/t*100;
       h+=`<td><div class="val-box ${ac>=100?'good-text':''}">${f1(v)}<span>${ac.toFixed(0)}%</span></div></td>`});
       
     h+=`<td class="val-box" style="color:var(--vi); font-size:15px;">${o.total.toFixed(1)}</td>
         <td><span class="badge ${STATUS[si][2]}">${STATUS[si][1]}</span></td>`;
         
-    // Indikator Member & Fair
     IN.forEach(x=>{
       const p=o[x[0]+'p']; const col=p>=0.5?'var(--g)':'var(--r)';
       h+=`<td>
@@ -528,7 +532,7 @@ function rCombined(){
   show(h);
 }
 
-/* ============ TAB AKUMULASI BULAN ============ */
+/* ============ TAB AKUMULASI BULAN (JAMINAN 19 TOKO LENGKAP) ============ */
 async function loadMonth(force=false){
   if(loading) return;
   loading=true; $('msg').style.display='flex'; $('cap').style.display='none';
@@ -541,16 +545,26 @@ async function loadMonth(force=false){
       result.forEach((r,k)=>{if(r.status==='fulfilled')days[batch[k]-1]=r.value;});
       $('msg').textContent=`Memproses data bulanan 19 toko · ${Math.min(i+MONTH_BATCH,31)}/31 hari`;
     }
+    
+    // Inisialisasi awal seluruh 19 Toko dari STORE_MASTER agar selalu pas 19 toko
     const st={};
+    STORE_MASTER.forEach(m=>{
+      st[m[0]] = { nama: m[1], kode: m[0], tot: 0, poin: 0, hist: Array(31).fill(null) };
+    });
+
     days.forEach((p,di)=>{
-      if(!p||!p.any)return;
+      if(!p||!p.stores)return;
       const rows=agg(p,-1), r=rankDesc(rows.map(o=>o.total));
       rows.forEach((o,i)=>{
-        const key=o.kode||o.nama;
-        const s=st[key]=st[key]||{nama:o.nama,kode:o.kode,tot:0,poin:0,hist:Array(31).fill(null)};
-        s.tot+=o.total; s.poin+=r[i]; s.hist[di]=r[i];
+        const key=o.kode;
+        const s = st[key] = st[key] || {nama:o.nama, kode:o.kode, tot:0, poin:0, hist:Array(31).fill(null)};
+        s.nama = o.nama;
+        s.tot += o.total; 
+        s.poin += r[i]; 
+        s.hist[di] = r[i];
       });
     });
+    
     MONTH=Object.values(st).sort((a,b)=>a.poin-b.poin);
     $('dot').className='dot'; $('upd').textContent='Akumulasi bulanan · '+new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB';
     rAcc();
