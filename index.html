@@ -48,7 +48,7 @@ body {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 24px;
-  max-width: 1600px;
+  max-width: 1750px;
   margin: 0 auto;
 }
 
@@ -158,52 +158,52 @@ select:focus, .btn:hover { border-color: var(--vi); box-shadow: 0 0 0 3px rgba(1
 .dot.loading { background: var(--y); animation: pulse 1s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 
-.kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
 .kpi-card {
   background: white;
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px;
   border: 1px solid var(--line);
   position: relative;
   overflow: hidden;
   transition: transform 0.2s;
 }
 .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(103, 80, 164, 0.08); }
-.kpi-card h4 { margin: 0 0 8px; font-size: 13px; color: var(--mut); font-weight: 600; text-transform: uppercase; }
-.kpi-card .val { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-.kpi-card .target { font-size: 12px; color: var(--mut); font-weight: 500; }
-.kpi-card .progress-bar { height: 6px; background: var(--line); border-radius: 99px; margin-top: 12px; overflow: hidden; }
+.kpi-card h4 { margin: 0 0 6px; font-size: 12px; color: var(--mut); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+.kpi-card .val { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
+.kpi-card .target { font-size: 11px; color: var(--mut); font-weight: 600; }
+.kpi-card .progress-bar { height: 6px; background: var(--line); border-radius: 99px; margin-top: 10px; overflow: hidden; }
 .kpi-card .progress-fill { height: 100%; background: var(--grad-primary); border-radius: 99px; }
 .kpi-card.total-card { background: var(--grad-primary); color: white; border: none; }
 .kpi-card.total-card h4, .kpi-card.total-card .val, .kpi-card.total-card .target { color: white; }
-.kpi-card.total-card .progress-bar { background: rgba(255,255,255,0.2); }
+.kpi-card.total-card .progress-bar { background: rgba(255,255,255,0.25); }
 .kpi-card.total-card .progress-fill { background: white; }
 
 .table-container { background: white; border-radius: 20px; border: 1px solid var(--line); overflow-x: auto; box-shadow: 0 5px 18px rgba(46,30,78,.035); }
-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; min-width: 1100px; }
-th { background: var(--c2); color: var(--mut); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; padding: 16px; border-bottom: 1px solid var(--line); text-align: center; position: sticky; top: 0; z-index: 1; }
-td { padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; font-weight: 500; line-height: 1.35; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; min-width: 1400px; }
+th { background: var(--c2); color: var(--mut); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.4px; padding: 12px 10px; border-bottom: 2px solid var(--line); text-align: center; vertical-align: middle; }
+th.section-title { background: #EADDFF; color: var(--vi); font-size: 12px; font-weight: 800; }
+td { padding: 10px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; font-weight: 500; line-height: 1.3; }
 tbody tr:hover { background: rgba(103, 80, 164, 0.03); }
 tbody tr:last-child td { border-bottom: 0; }
 
 .text-left { text-align: left; }
-.store-name { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 2px; overflow-wrap: anywhere; }
-.store-code { font-size: 11px; color: var(--mut); font-weight: 600; }
+.store-name { font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 2px; }
+.store-code { font-size: 10.5px; color: var(--mut); font-weight: 600; }
 
-.badge { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 99px; font-size: 11px; font-weight: 700; line-height: 1; }
+.badge { display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 99px; font-size: 10.5px; font-weight: 700; line-height: 1; whitespace: nowrap; }
 .bg-green { background: #DCFCE7; color: #166534; }
 .bg-blue { background: #DBEAFE; color: #1E40AF; }
 .bg-yellow { background: #FEF3C7; color: #92400E; }
 .bg-red { background: #FEE2E2; color: #991B1B; }
 .bg-purple { background: #F3E8FF; color: #6B21A8; }
 
-.rank-text { font-weight: 800; color: var(--vi); }
+.rank-text { font-weight: 800; color: var(--vi); font-size: 14px; }
 .alert-text { color: var(--r); font-weight: 800; }
-.alert-bg { background: #FEE2E2; padding: 4px 8px; border-radius: 8px; color: #991B1B; display: inline-block;}
 .good-text { color: var(--g); font-weight: 800; }
 
-.val-box { font-weight: 800; font-size: 15px; }
-.val-box span { display: block; font-size: 10px; color: var(--mut); font-weight: 600; margin-top: 2px; }
+.val-box { font-weight: 800; font-size: 14px; }
+.val-box span { display: block; font-size: 9.5px; color: var(--mut); font-weight: 600; margin-top: 1px; }
 
 #cap { display: block; }
 #msg { display: flex; align-items: center; justify-content: center; min-height: 180px; height: auto; padding: 30px; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 20px; color: var(--vi); font-weight: 600; font-size: 16px; }
@@ -213,18 +213,17 @@ tbody tr:last-child td { border-bottom: 0; }
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 22px 24px;
+  padding: 20px 24px;
   margin-bottom: 16px;
   border-radius: 20px;
   color: #fff;
   background: linear-gradient(115deg, #34206f 0%, #6750a4 58%, #a78bfa 100%);
   box-shadow: 0 12px 30px rgba(74, 48, 130, .16);
 }
-.export-head h1 { margin: 0; font-size: clamp(18px, 2.2vw, 27px); letter-spacing: .2px; font-weight: 800; }
-.export-head p { margin: 5px 0 0; color: rgba(255, 255, 255, .88); font-size: 12px; font-weight: 600; }
-.export-meta { text-align: right; font-size: 12px; line-height: 1.7; color: rgba(255, 255, 255, .95); }
-.btn:disabled { opacity: .55; cursor: wait; }
-.footer-note { margin-top: 16px; padding: 13px 18px; border-radius: 14px; background: #f0eafb; color: #5c478c; font-size: 12px; font-weight: 700; text-align: center; }
+.export-head h1 { margin: 0; font-size: clamp(18px, 2.2vw, 26px); letter-spacing: .2px; font-weight: 800; }
+.export-head p { margin: 4px 0 0; color: rgba(255, 255, 255, .88); font-size: 12px; font-weight: 600; }
+.export-meta { text-align: right; font-size: 12px; line-height: 1.6; color: rgba(255, 255, 255, .95); }
+.footer-note { margin-top: 16px; padding: 12px 18px; border-radius: 14px; background: #f0eafb; color: #5c478c; font-size: 12px; font-weight: 700; text-align: center; }
 
 @media(max-width: 1024px) {
   .layout { grid-template-columns: 1fr; }
@@ -238,16 +237,11 @@ tbody tr:last-child td { border-bottom: 0; }
   body { padding: 10px; }
   .layout { gap: 12px; }
   .sidebar { border-radius: 16px; gap: 12px; }
-  .profile { padding-right: 10px; }
-  .profile-info h3 { font-size: 14px; }
-  .nav-item { padding: 10px 12px; font-size: 12px; }
   .filters { padding: 12px; border-radius: 16px; }
   .live-status { margin-left: 0; width: 100%; justify-content: center; }
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
-  .kpi-card { padding: 12px; border-radius: 14px; }
-  .kpi-card .val { font-size: 23px; }
-  .export-head { padding: 16px; align-items: flex-start; }
-  .export-meta { font-size: 10px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kpi-card { padding: 10px; border-radius: 12px; }
+  .kpi-card .val { font-size: 22px; }
   select, .btn { flex: 1; }
 }
 </style>
@@ -264,11 +258,8 @@ tbody tr:last-child td { border-bottom: 0; }
       </div>
     </div>
     <div class="nav-menu" id="tabs">
-      <button class="nav-item active" data-t="prod">
-        <i data-lucide="bar-chart-2"></i> Produktivitas
-      </button>
-      <button class="nav-item" data-t="mem">
-        <i data-lucide="gift"></i> Member & Fair
+      <button class="nav-item active" data-t="combined">
+        <i data-lucide="layout-dashboard"></i> Produktivitas & Member
       </button>
       <button class="nav-item" data-t="acc">
         <i data-lucide="calendar-days"></i> Akumulasi Bulan
@@ -301,7 +292,7 @@ tbody tr:last-child td { border-bottom: 0; }
 
     <div id="msg">
         <i data-lucide="loader" style="margin-right:8px; animation: spin 1s linear infinite;"></i>
-        Memuat data realtime dari Google Sheets...
+        Memuat data 19 toko realtime dari Google Sheets...
     </div>
     <div id="cap"></div>
   </main>
@@ -310,20 +301,19 @@ tbody tr:last-child td { border-bottom: 0; }
 <script>
 lucide.createIcons();
 
-/* ============ PENGATURAN (SINKRON GS & GITHUB PAGES) ============ */
+/* ============ PENGATURAN SINKRON SPREADSHEET 19 TOKO ============ */
 const SHEET_ID='1ylxNHZGFvu2-AE_62H9qBPFuVa6CJHpTw6pfot2AaY8';
 const REFRESH_DETIK=30;
 const BLOCK=[7,32,57,82], JAMS=['10:00','15:00','19:00','23:00'], N=19;
 
-// Urutan resmi toko Area Hasan
+// Urutan resmi toko Area Hasan (19 Toko)
 const STORE_MASTER=[
   ['Y142','pancoran'],['Y457','dadapan'],['Y015','maesan'],['Y196','grujugan'],
   ['Y469','tamanan'],['Y247','jambe'],['Y1038','prapto2'],['Y073','supriyadi'],
   ['Y207','Baratan'],['Y222','jeruk'],['Y141','suko3'],['Y200','Kalis'],
   ['Y214','wahidin'],['Y144','a.yani'],['Y116','cumedak'],['Y136','arjasa'],
-  ['Y140','suko2'],['Y549','Gruu']
+  ['Y140','suko2'],['Y549','Gruu'],['Y550','Toko 19']
 ];
-const STORE_INDEX=new Map(STORE_MASTER.map((s,i)=>[s[0],i]));
 const FETCH_TIMEOUT=10000, MONTH_BATCH=5;
 const TARGET={psm:150,sertis:30,pwp:50,seger:50,ceban:10}, TOTAL_T=290;
 const IND=[['psm','PSM','Qty'],['sertis','SERTIS','Pkt'],['pwp','PWP','Qty'],['seger','SEGER','Qty'],['ceban','CEBAN','Pkt']];
@@ -335,7 +325,7 @@ const $=id=>document.getElementById(id), pad=n=>('0'+n).slice(-2);
 const f1=x=>(Math.round((Number(x)||0)*10)/10).toString();
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-let DATA=null, TAB='prod', MONTH=null, CACHE={};
+let DATA=null, TAB='combined', MONTH=null, CACHE={};
 $('xls').href='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/edit';
 
 (function(){
@@ -391,11 +381,12 @@ function parse(rows){
     const rawKode=String(cell(BLOCK[0]-1+i,1)).trim().toUpperCase();
     const rawNama=String(cell(BLOCK[0]-1+i,2)).trim();
     
-    // PERBAIKAN: Saring baris header / template dummy "KODE TOKO" / "NAMA TOKO"
-    if(!rawKode || rawKode==='KODE TOKO' || rawKode==='KODE' || rawNama==='Nama Toko' || rawNama==='NAMA TOKO') continue;
+    // Saring baris template/header "KODE TOKO" / "NAMA TOKO"
+    if(rawKode==='KODE TOKO' || rawKode==='KODE' || rawNama==='Nama Toko' || rawNama==='NAMA TOKO') continue;
+    if(!rawKode && !rawNama) continue;
 
     const master=STORE_MASTER.find(x=>x[0]===rawKode);
-    const s={kode:rawKode,nama:master?master[1]:rawNama,h:[]};
+    const s={kode:rawKode||('TOKO-'+(i+1)),nama:master?master[1]:(rawNama||('Toko '+(i+1))),h:[]};
     for(let b=0;b<4;b++){const r=BLOCK[b]-1+i;const h={lapor:false,staff:String(cell(r,4)).trim(),crew:String(cell(r,5)).trim()};
       for(let c=6;c<=12;c++)if(cell(r,c)!=='')h.lapor=true;
       for(const k in COLS)h[k]=num(cell(r,COLS[k]));
@@ -431,7 +422,7 @@ async function load(fresh=false){
     }
     DATA={d,p};
     $('dot').className='dot';
-    $('upd').textContent='Tersinkron · Tgl '+pad(d)+' · '+new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB';
+    $('upd').textContent='Tersinkron ('+p.stores.length+' Toko) · Tgl '+pad(d)+' · '+new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB';
     render();
   } catch(e) {
     $('dot').className='dot error'; $('upd').textContent='Sinkronisasi gagal';
@@ -442,25 +433,34 @@ async function load(fresh=false){
 
 function refresh(){MONTH=null;CACHE={};TAB==='acc'?loadMonth(true):load(true)}
 function show(h){
-  const tabName={prod:'PRODUKTIVITAS',mem:'MEMBER & FAIR',acc:'AKUMULASI BULAN'}[TAB]||'MONITORING';
+  const tabName=TAB==='acc'?'AKUMULASI BULAN':'MONITORING PRODUKTIVITAS & MEMBER (GABUNGAN)';
   const dateText=TAB==='acc'?'Rekap Tanggal 01–31':`Tanggal ${pad(DATA?.d||+$('tgl').value)} · ${$('jam').selectedOptions[0]?.textContent||''}`;
-  $('cap').innerHTML=`<div class="export-head"><div><h1>Dashboard Performance Toko</h1><p>MONITORING AREA HASAN · ${tabName}</p></div><div class="export-meta"><strong>${dateText}</strong><br>Data Google Sheets · ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB</div></div>${h}<div class="footer-note">Performance Lebih Baik, Bersama Kita · Total Toko Dibaca Otomatis dari Spreadsheet</div>`;
+  $('cap').innerHTML=`<div class="export-head"><div><h1>Dashboard Performance Toko</h1><p>MONITORING AREA HASAN · ${tabName}</p></div><div class="export-meta"><strong>${dateText}</strong><br>19 Toko Terbaca dari Spreadsheet · ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB</div></div>${h}<div class="footer-note">Performance Lebih Baik, Bersama Kita · Total 19 Toko Area Hasan</div>`;
   $('cap').style.display='block';$('msg').style.display='none';lucide.createIcons();
 }
-function render(){if(!DATA&&TAB!=='acc')return;({prod:rProd,mem:rMem,acc:rAcc})[TAB]()}
+function render(){if(!DATA&&TAB!=='acc')return;({combined:rCombined,acc:rAcc})[TAB]()}
 
-/* ============ TAB 1: PRODUKTIVITAS ============ */
-function rProd(){
+/* ============ TAB GABUNGAN: PRODUKTIVITAS & MEMBER & FAIR (19 TOKO IN 1 TABLE) ============ */
+function rCombined(){
   const jam=+$('jam').value,d=DATA.d,rows=agg(DATA.p,jam);
+  
+  // Hitung Produktivitas & Peringkat
   const rk=IND.map(x=>rankDesc(rows.map(o=>o[x[0]])));
   rows.forEach((o,i)=>o.score=rk.reduce((a,r)=>a+r[i],0));
   const rr=rankDesc(rows.map(o=>-o.score));rows.forEach((o,i)=>o.rank=rr[i]);
+  
+  // Hitung Member & Fair
+  const IN=[['m','MEMBER','bg-blue','pakai','tidak'],...FAIRS.map(f=>[f[0],f[1],f[2],f[0]+'R',f[0]+'L'])];
+  rows.forEach(o=>IN.forEach(x=>{const a=o[x[3]],b=o[x[4]];o[x[0]+'p']=(a+b)?a/(a+b):0;o[x[0]+'k']=(a+b)?o[x[0]+'p']+a*1e-6:-1}));
+  IN.forEach(x=>{const r=rankDesc(rows.map(o=>o[x[0]+'k']));rows.forEach((o,i)=>o[x[0]+'r']=r[i])});
+  rows.forEach(o=>o.skorFair=IN.reduce((a,x)=>a+o[x[0]+'r'],0));
+  
+  // Urutkan berdasarkan Peringkat Total Produktivitas
   rows.sort((a,b)=>b.total-a.total);
+  
   const n=rows.length||1,avg={};IND.forEach(x=>avg[x[0]]=rows.reduce((a,o)=>a+o[x[0]],0)/n);
-  const avgT=rows.reduce((a,o)=>a+o.total,0)/n,mn={},mxk={};
-  IND.forEach(x=>{const v=rows.map(o=>o[x[0]]);const lo=Math.min(...v),hi=Math.max(...v);mn[x[0]]=lo<hi?lo:null;
-    const sh=v.map(a=>Math.max(0,TARGET[x[0]]-a));const sm=Math.max(...sh);mxk[x[0]]=(sm>0&&sm>Math.min(...sh))?sm:null});
-  const cnt=[0,0,0,0],stat=t=>{const p=t/TOTAL_T;for(let i=0;i<4;i++)if(p>=STATUS[i][0]||i==3)return i};
+  const avgT=rows.reduce((a,o)=>a+o.total,0)/n;
+  const stat=t=>{const p=t/TOTAL_T;for(let i=0;i<4;i++)if(p>=STATUS[i][0]||i==3)return i};
   
   let h=`<div class="kpi-grid">`;
   IND.forEach(x=>{const a=avg[x[0]],pc=Math.min(100,a/TARGET[x[0]]*100);
@@ -481,81 +481,65 @@ function rProd(){
     <table>
       <thead>
         <tr>
-          <th>Toko</th>
-          <th>Rank</th>
+          <th rowspan="2" class="text-left">No. Toko</th>
+          <th rowspan="2">Rank</th>
+          <th colspan="6" class="section-title">PRODUKTIVITAS TOKO</th>
+          <th colspan="4" class="section-title" style="background:#E0F2FE; color:#0369A1;">MEMBER & FAIR (PENETRASI %)</th>
+        </tr>
+        <tr>
           ${IND.map(x=>`<th>${x[1]}</th>`).join('')}
           <th>Total</th>
           <th>Status</th>
-          <th colspan="5">Evaluasi (Kekurangan Qty)</th>
+          <th>Member</th>
+          <th>Susu 1</th>
+          <th>Susu 2</th>
+          <th>Diapers</th>
         </tr>
       </thead>
       <tbody>`;
       
-  rows.forEach((o,i)=>{const si=stat(o.total);cnt[si]++;
+  rows.forEach((o,i)=>{const si=stat(o.total);
     h+=`<tr>
       <td class="text-left">
-        <div class="store-name">${esc(o.nama)}</div>
+        <div class="store-name">${i+1}. ${esc(o.nama)}</div>
         <div class="store-code">${esc(o.kode)} • ${esc(o.staff||'-')}/${esc(o.crew||'-')}</div>
       </td>
       <td class="rank-text">#${o.rank}</td>`;
       
-    IND.forEach(x=>{const v=o[x[0]],t=TARGET[x[0]],ac=v/t*100,m=mn[x[0]]===v;
-      h+=`<td><div class="val-box ${ac>=100?'good-text':''} ${m?'alert-bg':''}">${f1(v)}<span>${ac.toFixed(0)}%</span></div></td>`});
+    // Indikator Produktivitas
+    IND.forEach(x=>{const v=o[x[0]],t=TARGET[x[0]],ac=v/t*100;
+      h+=`<td><div class="val-box ${ac>=100?'good-text':''}">${f1(v)}<span>${ac.toFixed(0)}%</span></div></td>`});
       
-    h+=`<td class="val-box" style="color:var(--vi); font-size:16px;">${o.total.toFixed(1)}</td>
+    h+=`<td class="val-box" style="color:var(--vi); font-size:15px;">${o.total.toFixed(1)}</td>
         <td><span class="badge ${STATUS[si][2]}">${STATUS[si][1]}</span></td>`;
         
-    IND.forEach(x=>{const k=Math.max(0,TARGET[x[0]]-o[x[0]]),mx=mxk[x[0]]!==null&&k===mxk[x[0]];
-      h+=`<td><div class="${k==0?'good-text':'alert-text'} ${mx?'alert-bg':''}" style="font-size:12px">${k==0?'✓':'-'+f1(k)}</div></td>`});
+    // Indikator Member & Fair
+    IN.forEach(x=>{
+      const p=o[x[0]+'p']; const col=p>=0.5?'var(--g)':'var(--r)';
+      h+=`<td>
+        <div class="val-box" style="color:${col}">${(p*100).toFixed(0)}%</div>
+        <div style="font-size:9.5px; color:var(--mut); margin-top:1px;">${o[x[3]]}/${o[x[4]]}</div>
+      </td>`;
+    });
+
     h+='</tr>'});
     
   h+=`</tbody></table></div>`;
   show(h);
 }
 
-/* ============ TAB 2: MEMBER & FAIR ============ */
-function rMem(){
-  const jam=+$('jam').value,d=DATA.d,rows=agg(DATA.p,jam);
-  const IN=[['m','MEMBER','bg-blue','pakai','tidak','Pakai','Tidak'],...FAIRS.map(f=>[f[0],f[1],f[2],f[0]+'R',f[0]+'L','Redeem','Lost'])];
-  rows.forEach(o=>IN.forEach(x=>{const a=o[x[3]],b=o[x[4]];o[x[0]+'p']=a+b?a/(a+b):0;o[x[0]+'k']=(a+b)?o[x[0]+'p']+a*1e-6:-1}));
-  IN.forEach(x=>{const r=rankDesc(rows.map(o=>o[x[0]+'k']));rows.forEach((o,i)=>o[x[0]+'r']=r[i])});
-  rows.forEach(o=>o.skor=IN.reduce((a,x)=>a+o[x[0]+'r'],0));
-  rows.sort((a,b)=>a.skor-b.skor);
-  
-  let h=`<div class="table-container"><table><thead><tr>
-    <th class="text-left">Toko</th>
-    ${IN.map(x=>`<th>${x[1]}<br><span style="font-weight:normal;font-size:10px">${x[5]} vs ${x[6]}</span></th>`).join('')}
-    <th>Skor Fair</th>
-  </tr></thead><tbody>`;
-  
-  rows.forEach((o,i)=>{
-    h+=`<tr>
-      <td class="text-left">
-        <div class="store-name">${i+1}. ${esc(o.nama)}</div>
-        <div class="store-code">${esc(o.kode)}</div>
-      </td>`;
-    IN.forEach(x=>{const p=o[x[0]+'p']; const col=p>=0.5?'var(--g)':'var(--r)';
-      h+=`<td>
-        <div class="val-box" style="color:${col}">${(p*100).toFixed(0)}%</div>
-        <div style="font-size:10px; color:var(--mut); margin-top:2px;">${o[x[3]]} / ${o[x[4]]}</div>
-      </td>`});
-    h+=`<td class="rank-text">${o.skor}</td></tr>`});
-  h+=`</tbody></table></div>`;
-  show(h);
-}
-
-/* ============ TAB 3: AKUMULASI BULAN ============ */
+/* ============ TAB AKUMULASI BULAN ============ */
 async function loadMonth(force=false){
   if(loading) return;
   loading=true; $('msg').style.display='flex'; $('cap').style.display='none';
-  $('msg').textContent='Mengambil data bulanan secara bertahap...';
+  $('msg').textContent='Mengambil data 19 toko bulanan secara bertahap...';
   try {
     const days=Array(31).fill(null);
     for(let i=0;i<31;i+=MONTH_BATCH){
       const batch=Array.from({length:Math.min(MONTH_BATCH,31-i)},(_,k)=>i+k+1);
       const result=await Promise.allSettled(batch.map(d=>fetchDay(d,force)));
       result.forEach((r,k)=>{if(r.status==='fulfilled')days[batch[k]-1]=r.value;});
-      $('msg').textContent=`Memproses data bulanan · ${Math.min(i+MONTH_BATCH,31)}/31 hari`;
+      $('msg').textContent=`Memproses data bulanan 19 toko · ${Math.min(i+MONTH_BATCH,31)}/31 hari`;
     }
     const st={};
     days.forEach((p,di)=>{
@@ -584,17 +568,17 @@ function rAcc(){
   
   MONTH.forEach((s,i)=>{
     h+=`<tr>
-      <td class="no">${i+1}</td>
-      <td class="text-left nm">
+      <td class="rank-text">#${i+1}</td>
+      <td class="text-left">
         <div class="store-name">${esc(s.nama)}</div>
         <div class="store-code">${esc(s.kode)}</div>
       </td>
       <td class="val-box">${f1(s.tot)}</td>
-      <td class="alert-text" style="font-size:16px">${s.poin}</td>
+      <td class="alert-text" style="font-size:15px">${s.poin}</td>
       <td class="text-left">
-        <div style="display:flex; flex-wrap:wrap; gap:2px; max-width:400px;">`+
-        s.hist.map((r,d)=>r===null?`<div style="width:20px;height:20px;background:var(--line);border-radius:4px;opacity:0.5" title="Tgl ${d+1}"></div>`:
-        `<div style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:bold;color:white;border-radius:4px;background:${r<=5?'var(--g)':r>=15?'var(--r)':'var(--y)'}" title="Tgl ${d+1}: Rank ${r}">${r}</div>`).join('')+
+        <div style="display:flex; flex-wrap:wrap; gap:2px; max-width:420px;">`+
+        s.hist.map((r,d)=>r===null?`<div style="width:19px;height:19px;background:var(--line);border-radius:4px;opacity:0.5" title="Tgl ${d+1}"></div>`:
+        `<div style="width:19px;height:19px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:bold;color:white;border-radius:4px;background:${r<=5?'var(--g)':r>=15?'var(--r)':'var(--y)'}" title="Tgl ${d+1}: Rank ${r}">${r}</div>`).join('')+
         `</div>
       </td>
     </tr>`});
@@ -613,11 +597,11 @@ async function dl(){
       backgroundColor: '#F3EDF7',
       useCORS: true,
       logging: false,
-      windowWidth: Math.max(document.documentElement.scrollWidth, el.scrollWidth, 1200)
+      windowWidth: Math.max(document.documentElement.scrollWidth, el.scrollWidth, 1350)
     });
     
     const a=document.createElement('a'), jam=+$('jam').value;
-    const nm={prod:'Dashboard_Produktivitas',mem:'Dashboard_Member_Fair',acc:'Dashboard_Akumulasi_Bulanan'}[TAB];
+    const nm=TAB==='acc'?'Dashboard_Akumulasi_Bulanan':'Dashboard_Produktivitas_Member_Combined';
     a.download=TAB==='acc'?`${nm}_AreaHasan.png`:`${nm}_Tgl${pad(DATA.d)}_${jam===-1?'Total':'Jam'+JAMS[jam].replace(':','')}.png`;
     a.href=canvas.toDataURL('image/png', 1.0);
     a.click();
